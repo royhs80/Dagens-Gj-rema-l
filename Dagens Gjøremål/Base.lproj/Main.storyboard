@@ -32,7 +32,14 @@
                             <outlet property="delegate" destination="VyA-9x-72m" id="TbX-uO-G3h"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Gjør det, gjør det, gjennomfør det!" id="B8m-oI-fyA"/>
+                    <navigationItem key="navigationItem" title="Gjør det, gjør det, gjennomfør det!" id="B8m-oI-fyA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="SWv-jz-Qyx">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="leggTilKnappTrykket:" destination="VyA-9x-72m" id="agm-5O-35N"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qku-YH-ynD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

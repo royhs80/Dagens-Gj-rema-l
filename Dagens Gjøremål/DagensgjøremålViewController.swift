@@ -10,7 +10,7 @@ import UIKit
 
 class DagensgjøremålViewController: UITableViewController {
     
-    let gjenstandRekke = ["Finn ei potet", "Gå og legg deg", "Hopp over gjerdet"]
+    var gjenstandRekke = ["Finn ei potet", "Gå og legg deg", "Hopp over gjerdet"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +40,34 @@ class DagensgjøremålViewController: UITableViewController {
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
-        
-        
-        
-        
+    
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
-
+//Mark - Legg Til Nye Ting.
+    
+    @IBAction func leggTilKnappTrykket(_ sender: UIBarButtonItem) {
+        
+        var tekstFelt = UITextField()
+        
+        let advarsel = UIAlertController(title: "Legg til nytt gjøremål", message: "", preferredStyle: .alert)
+        
+        let hendelse = UIAlertAction(title: "Legg til gjøremål", style: .default) { (hendelse) in
+            //Det som skal skje når brukeren trykker på "Legg til gjøremål"-knappen på UIadvarselen vår.
+            self.gjenstandRekke.append(tekstFelt.text!)
+            
+            self.tableView.reloadData()
+        }
+        advarsel.addTextField { (advarselTekstFelt) in
+            advarselTekstFelt.placeholder = "Legg til gjøremålet"
+            
+            tekstFelt = advarselTekstFelt
+            print("nå")
+        }
+        advarsel.addAction(hendelse)
+        present(advarsel, animated: true, completion: nil)
+    
+    }
+    
 }
 
