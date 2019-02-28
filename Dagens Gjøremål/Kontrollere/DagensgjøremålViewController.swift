@@ -10,7 +10,7 @@ import UIKit
 
 class DagensgjøremålViewController: UITableViewController {
     
-    var gjenstandRekke = ["Finn ei potet", "Gå og legg deg", "Hopp over gjerdet"]
+    var gjenstandRekke = [Ting]()
     
     let standard = UserDefaults.standard
 
@@ -18,8 +18,21 @@ class DagensgjøremålViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        if let gjenstand = standard.array(forKey: "ÅGjøreListRekke") as? [String] {
-            gjenstandRekke = gjenstand
+        let nyTing = Ting()
+        nyTing.tittel = "Finn ei potet"
+        gjenstandRekke.append(nyTing)
+        
+        let nyTing2 = Ting()
+        nyTing2.tittel = "Skrell ei potet"
+        gjenstandRekke.append(nyTing2)
+        
+        let nyTing3 = Ting()
+        nyTing3.tittel = "Kok ei potet"
+        gjenstandRekke.append(nyTing3)
+        
+         if let gjenstand = standard.array(forKey: "ÅGjøreListRekke") as? [Ting] {
+        gjenstandRekke = gjenstand
+            
         }
         
     }
@@ -30,9 +43,19 @@ class DagensgjøremålViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      
         let cell = tableView.dequeueReusableCell(withIdentifier: "Gjøremålcelle", for: indexPath)
         
-        cell.textLabel?.text = gjenstandRekke[indexPath.row]
+        
+        let gjøremål = gjenstandRekke[indexPath.row]
+        
+        cell.textLabel?.text = gjøremål.tittel
+       
+        //Ternary operator ==>
+        //Value = condition ? valueIfTrue : valueIfFalse
+        // hvis verdien til cellen
+        cell.accessoryType = gjøremål.gjort ? .checkmark : .none
+        
         
         return cell
     }
@@ -41,12 +64,10 @@ class DagensgjøremålViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(gjenstandRekke[indexPath.row])
+      
+        gjenstandRekke[indexPath.row].gjort = !gjenstandRekke[indexPath.row].gjort
         
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
+        tableView.reloadData()
     
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -61,7 +82,11 @@ class DagensgjøremålViewController: UITableViewController {
         
         let hendelse = UIAlertAction(title: "Legg til gjøremål", style: .default) { (hendelse) in
             //Det som skal skje når brukeren trykker på "Legg til gjøremål"-knappen på UIadvarselen vår.
-            self.gjenstandRekke.append(tekstFelt.text!)
+          
+            let nyTing = Ting()
+            nyTing.tittel = tekstFelt.text!
+    
+            self.gjenstandRekke.append(nyTing)
             self.standard.set(self.gjenstandRekke, forKey: "ÅGjøreListRekke")
             
             self.tableView.reloadData()

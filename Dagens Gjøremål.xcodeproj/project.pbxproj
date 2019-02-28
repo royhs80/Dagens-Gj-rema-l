@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		742C88FC2228005000EB124E /* Ting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C88FB2228005000EB124E /* Ting.swift */; };
 		7473608022242C2D00BCCF34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7473607F22242C2D00BCCF34 /* AppDelegate.swift */; };
 		7473608222242C2D00BCCF34 /* DagensgjøremålViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7473608122242C2D00BCCF34 /* DagensgjøremålViewController.swift */; };
 		7473608522242C2D00BCCF34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7473608322242C2D00BCCF34 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		742C88FB2228005000EB124E /* Ting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ting.swift; sourceTree = "<group>"; };
 		7473607C22242C2D00BCCF34 /* Dagens Gjøremål.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dagens Gjøremål.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7473607F22242C2D00BCCF34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7473608122242C2D00BCCF34 /* DagensgjøremålViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DagensgjøremålViewController.swift"; sourceTree = "<group>"; };
@@ -35,6 +37,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		742C88FD2228006000EB124E /* Datamodell */ = {
+			isa = PBXGroup;
+			children = (
+				742C88FB2228005000EB124E /* Ting.swift */,
+			);
+			path = Datamodell;
+			sourceTree = "<group>";
+		};
+		742C88FE222800BB00EB124E /* Kontrollere */ = {
+			isa = PBXGroup;
+			children = (
+				7473608122242C2D00BCCF34 /* DagensgjøremålViewController.swift */,
+			);
+			path = Kontrollere;
+			sourceTree = "<group>";
+		};
+		742C89002228017800EB124E /* Oversikt */ = {
+			isa = PBXGroup;
+			children = (
+				7473608322242C2D00BCCF34 /* Main.storyboard */,
+			);
+			path = Oversikt;
+			sourceTree = "<group>";
+		};
+		742C8901222801B600EB124E /* Supportfiler */ = {
+			isa = PBXGroup;
+			children = (
+				7473608622242C2F00BCCF34 /* Assets.xcassets */,
+				7473608822242C2F00BCCF34 /* LaunchScreen.storyboard */,
+			);
+			path = Supportfiler;
+			sourceTree = "<group>";
+		};
 		7473607322242C2D00BCCF34 = {
 			isa = PBXGroup;
 			children = (
@@ -55,10 +90,10 @@
 			isa = PBXGroup;
 			children = (
 				7473607F22242C2D00BCCF34 /* AppDelegate.swift */,
-				7473608122242C2D00BCCF34 /* DagensgjøremålViewController.swift */,
-				7473608322242C2D00BCCF34 /* Main.storyboard */,
-				7473608622242C2F00BCCF34 /* Assets.xcassets */,
-				7473608822242C2F00BCCF34 /* LaunchScreen.storyboard */,
+				742C88FE222800BB00EB124E /* Kontrollere */,
+				742C88FD2228006000EB124E /* Datamodell */,
+				742C89002228017800EB124E /* Oversikt */,
+				742C8901222801B600EB124E /* Supportfiler */,
 				7473608B22242C2F00BCCF34 /* Info.plist */,
 			);
 			path = "Dagens Gjøremål";
@@ -135,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				742C88FC2228005000EB124E /* Ting.swift in Sources */,
 				7473608222242C2D00BCCF34 /* DagensgjøremålViewController.swift in Sources */,
 				7473608022242C2D00BCCF34 /* AppDelegate.swift in Sources */,
 			);
