@@ -11,10 +11,17 @@ import UIKit
 class DagensgjøremålViewController: UITableViewController {
     
     var gjenstandRekke = ["Finn ei potet", "Gå og legg deg", "Hopp over gjerdet"]
+    
+    let standard = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if let gjenstand = standard.array(forKey: "ÅGjøreListRekke") as? [String] {
+            gjenstandRekke = gjenstand
+        }
+        
     }
 
     // Mark Tableview Datasource Methods
@@ -55,6 +62,7 @@ class DagensgjøremålViewController: UITableViewController {
         let hendelse = UIAlertAction(title: "Legg til gjøremål", style: .default) { (hendelse) in
             //Det som skal skje når brukeren trykker på "Legg til gjøremål"-knappen på UIadvarselen vår.
             self.gjenstandRekke.append(tekstFelt.text!)
+            self.standard.set(self.gjenstandRekke, forKey: "ÅGjøreListRekke")
             
             self.tableView.reloadData()
         }
